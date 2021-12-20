@@ -1,0 +1,23 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lobnaelnahas10/flight-reservation.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lobnaelnahas10/flight-reservation/issues"
+  },
+  "homepage": "https://github.com/lobnaelnahas10/flight-reservation#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "moment": "^2.29.1"
+  }
+}
