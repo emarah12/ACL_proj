@@ -10,6 +10,16 @@ import SettingsIcon from '@mui/icons-material/Settings';
 import GroupAddIcon from '@mui/icons-material/GroupAdd';
 import VideoLabelIcon from '@mui/icons-material/VideoLabel';
 import StepConnector, { stepConnectorClasses } from '@mui/material/StepConnector';
+import Paper from '@mui/material/Paper';
+import Grid from '@mui/material/Grid';
+import Box from '@mui/material/Box';
+
+const Item = styled(Paper)(({ theme }) => ({
+  ...theme.typography.body2,
+  padding: theme.spacing(1),
+  textAlign: 'center',
+  color: theme.palette.text.secondary,
+}));
 
 const QontoConnector = styled(StepConnector)(({ theme }) => ({
   [`&.${stepConnectorClasses.alternativeLabel}`]: {
@@ -59,7 +69,7 @@ function QontoStepIcon(props) {
   const { active, completed, className } = props;
 
   return (
-    <QontoStepIconRoot ownerState={{ active }} className={className}>
+    <QontoStepIconRoot ownerState={{ active }} className={className} > 
       {completed ? (
         <Check className="QontoStepIcon-completedIcon" />
       ) : (
@@ -90,13 +100,13 @@ const ColorlibConnector = styled(StepConnector)(({ theme }) => ({
   [`&.${stepConnectorClasses.active}`]: {
     [`& .${stepConnectorClasses.line}`]: {
       backgroundImage:
-        'linear-gradient( 95deg,rgb(242,113,33) 0%,rgb(233,64,87) 50%,rgb(138,35,135) 100%)',
+        'linear-gradient( 136deg, rgb(242,113,33) 0%, rgb(233,64,87) 0%, rgb(138,35,135) 100%)',
     },
   },
   [`&.${stepConnectorClasses.completed}`]: {
     [`& .${stepConnectorClasses.line}`]: {
       backgroundImage:
-        'linear-gradient( 95deg,rgb(242,113,33) 0%,rgb(233,64,87) 50%,rgb(138,35,135) 100%)',
+        'linear-gradient( 136deg, rgb(242,113,33) 0%, rgb(233,64,87) 0%, rgb(138,35,135) 0%)',
     },
   },
   [`& .${stepConnectorClasses.line}`]: {
@@ -109,7 +119,7 @@ const ColorlibConnector = styled(StepConnector)(({ theme }) => ({
 }));
 
 const ColorlibStepIconRoot = styled('div')(({ theme, ownerState }) => ({
-  backgroundColor: theme.palette.mode === 'dark' ? theme.palette.grey[700] : '#ccc',
+  backgroundColor: theme.palette.mode === 'dark' ? theme.palette.grey[700] : '#E5E5E5',
   zIndex: 1,
   color: '#fff',
   width: 50,
@@ -118,6 +128,7 @@ const ColorlibStepIconRoot = styled('div')(({ theme, ownerState }) => ({
   borderRadius: '50%',
   justifyContent: 'center',
   alignItems: 'center',
+ 
   ...(ownerState.active && {
     backgroundImage:
       'linear-gradient( 136deg, rgb(242,113,33) 0%, rgb(233,64,87) 50%, rgb(138,35,135) 100%)',
@@ -171,7 +182,10 @@ const steps = ['Select', 'Book','Pay'];
 
 export default function CustomizedSteppers() {
   return (
-    <Stack sx={{ width: '100%' }} spacing={4}>
+    <Box sx={{ flexGrow: 1 }}>
+    <Grid container spacing={4} style={{marginLeft:'10px'}}>
+      <Grid item xs={7}>
+        <Item> <Stack sx={{ width: '100%' }} spacing={4} >
       {/* <Stepper alternativeLabel activeStep={1} connector={<QontoConnector />}>
        {steps.map((label) => (
           <Step key={label}>
@@ -186,6 +200,13 @@ export default function CustomizedSteppers() {
           </Step>
         ))}
       </Stepper>
-    </Stack>
+    </Stack></Item>
+      </Grid>
+      <Grid item xs={4}>
+        <Item><h2 style={{color:'#05004E'}}>YOUR BOOKING</h2></Item>
+      </Grid>
+      </Grid>
+      </Box>
+   
   );
 }

@@ -16,24 +16,18 @@ const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
 const images = [
   {
-    label: 'San Francisco – Oakland Bay Bridge, United States',
+    label: 'Oia, Santorini-Sea Houses, Greece',
     imgPath:
-      'https://images.unsplash.com/photo-1537944434965-cf4679d1a598?auto=format&fit=crop&w=400&h=250&q=60',
-  },
-//   {
-//     label: 'Bird',
-//     imgPath:
-//       'https://images.unsplash.com/photo-1538032746644-0212e812a9e7?auto=format&fit=crop&w=400&h=250&q=60',
-//   },
-  {
-    label: 'Bali, Indonesia',
-    imgPath:
-      'https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=400&h=250&q=80',
+      'https://flyawaytravel.in/wp-content/uploads/2015/01/Greece1.jpg',
   },
   {
-    label: 'Goč, Serbia',
+    label: 'London-Neuschwanstein Castle, United Kingdom',
+    imgPath:'https://p4.wallpaperbetter.com/wallpaper/712/466/498/germany-tourism-neuschwanstein-castle-travel-wallpaper-preview.jpg',
+  },
+  {
+    label: 'Fuji Hakone-izu National Park-Mount Fuji, Japan',
     imgPath:
-      'https://images.unsplash.com/photo-1512341689857-198e7e2f3ca8?auto=format&fit=crop&w=400&h=250&q=60',
+      'https://pxwall.com/wp-content/uploads/2018/06/Wallpaper%20fuji,%204k,%20HD%20wallpaper,%20japan,%20travel,%20tourism,%20National%20Geographic%20Traveler%20Photo%20Contest,%20Travel%206327616972.jpg',
   },
 ];
 
@@ -73,7 +67,7 @@ function SwipeableTextMobileStepper() {
       <AutoPlaySwipeableViews
         axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
         index={activeStep}
-        onChangeIndex={handleStepChange}
+        onChangeIndex={handleStepChange} 
         enableMouseEvents
       >
         {images.map((step, index) => (

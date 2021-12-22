@@ -10,6 +10,7 @@ import LocalizationProvider from '@mui/lab/LocalizationProvider';
 import EventIcon from '@mui/icons-material/Event';
 import EscalatorWarningIcon from '@mui/icons-material/EscalatorWarning';
 import ManIcon from '@mui/icons-material/Man';
+import Autocomplete from '@mui/material/Autocomplete';
 
 export default function InputAdornments() {
   const [values, setValues] = React.useState({
@@ -25,7 +26,13 @@ export default function InputAdornments() {
   return (
     <Box sx={{ display: 'flex', flexWrap: 'wrap' ,marginLeft:'3rem'}}>
      <div>
-        <TextField
+     {/* <Autocomplete
+      disablePortal
+      id="combo-box-demo"
+      options={top100Films}
+      sx={{ width: 300 }}
+      renderInput={(params) =>
+        <TextField {...params}
           label="From"
           onChange={handleChange('from')}
           id="filled-start-adornment"
@@ -39,6 +46,22 @@ export default function InputAdornments() {
             'aria-label': 'from',
           }}
         />       
+     }
+    /> */}
+          <TextField 
+          label="From"
+          onChange={handleChange('from')}
+          id="filled-start-adornment"
+          sx={{ m: 1, width: '20ch',marginTop:'3rem' }}
+          InputProps={{
+            startAdornment: <InputAdornment position="start" ><FlightTakeoffIcon />
+            </InputAdornment>,
+          }}
+          variant="filled"
+          inputProps={{
+            'aria-label': 'from',
+          }}
+        /> 
       </div>
       <div>
         <TextField
@@ -125,31 +148,6 @@ export default function InputAdornments() {
           helperText="(2-11 years)"
           variant="filled"
         > </TextField>
-    {/* <InputLabel htmlFor="grouped-native-select"></InputLabel>
-        <Select 
-        
-        id="filled-start-adornment" 
-        select
-        label="Passenger/(s)"
-        sx={{ m: 1, width: '20ch',marginTop:'4rem' }}
-        InputProps={{
-          startAdornment: <InputAdornment position="start"><EventIcon />
-          </InputAdornment>,
-        }}
-        variant="filled"
-
-        native defaultValue="" id="grouped-native-select" label="Passenger/(s)">
-          <option aria-label="None" value="1 Passenger" />
-          <optgroup label="Category 1">
-            <option value={1}>Option 1</option>
-            <option value={2}>Option 2</option>
-          </optgroup>
-          <optgroup label="Category 2">
-            <option value={3}>Option 3</option>
-            <option value={4}>Option 4</option>
-          </optgroup>
-          helperText="Please select your currency"
-        </Select> */}
         </div>
     </Box>
   );
