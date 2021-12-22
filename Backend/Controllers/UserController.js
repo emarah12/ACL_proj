@@ -66,7 +66,7 @@ router.delete('/userDeleteFlight/:_id', function(req, res, next){     //a delete
 
 //Update user info
 router.get('/update/:id',function(req,res){                            //update data in reservations also
-    user.findById(req.params.id).then(function(flight){
+    User.findById(req.params.id).then(function(flight){
         res.send(User);
     }).catch(next);
     });
