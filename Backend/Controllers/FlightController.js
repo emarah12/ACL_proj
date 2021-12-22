@@ -45,7 +45,7 @@ router.get("/searchFlights",(req,res) =>{
 router.delete('/deleteFlight/:_id', function(req, res, next){
     console.log("delete");
     console.log(req.params._id);
-    Flight.deleteOne({_id: mongoose.Types.ObjectId(req.params._id)}).then(function(flight){
+    Flight.deleteOne({_id: mongoose.Types.ObjectId(req.params._id)}).then(function(flight){  //findall
         res.send(flight);
         console.log("record successfully deleted!")
     }).catch(next);
