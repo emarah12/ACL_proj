@@ -9,7 +9,7 @@ import Navbar from './components/AdminComponents/Navbar/navbar'
 import Edit from './components/AdminComponents/edit';
 import SearchFlights from './components/AdminComponents/Search/searchFlights';
 import SearchResults from './components/AdminComponents/Search/searchResults';
-import CustomizedSteppers from './components/UserComponents/select';
+import CustomizedSteppers from './components/UserComponents/stepper/select';
 import SwipeableTextMobileStepper from './components/UserComponents/home';
 
 
