@@ -46,11 +46,11 @@ router.get("/numOfBussSeats",(req,res) =>{
 });
 
 //Load all flights (Reserved)
-router.get('/userReservedFlights', function (req, res) {
-    Flight.find(function(err, Flight) {
+router.get('/userReservedFlights', function (req, res) {  //id
+    User.findById(function(err, reservedFlights) {
         if (err)
             res.send(err);
-        res.json(Flight);
+        res.json(User.res); //
     });
 })
 
@@ -58,15 +58,15 @@ router.get('/userReservedFlights', function (req, res) {
 router.delete('/userDeleteFlight/:_id', function(req, res, next){     //a delete ezay 3and user msh mn el flights (seats++,send email)
     console.log("delete");
     console.log(req.params._id);
-    Flight.deleteOne({_id: mongoose.Types.ObjectId(req.params._id)}).then(function(flight){  //findall
-        res.send(flight);
+    User.deleteOne({_id: mongoose.Types.ObjectId(req.params._id)}).then(function(User){  //findall  //user
+        res.send(User);
         console.log("record successfully deleted!")
     }).catch(next);
 });
 
 //Update user info
-router.get('/update/:id',function(req,res){                            //update data in reservations also
-    user.findById(req.params.id).then(function(flight){
+router.get('/userUpdate/:id',function(req,res){                            //update data in reservations also
+    User.findById(req.params.id).then(function(User){
         res.send(User);
     }).catch(next);
     });

@@ -41,9 +41,16 @@ const flightSchema = new mongoose.Schema({
     {
     type: String,
     required: true
+    },
+
+    //array of reserved flights
+    reservedFlights:
+    {
+        type: Schema.Types.Flight,
+        path: Flight,
+        required: True
     }
 
-    
 });
 
 userSchema.index({ "$**": "text" }); 
