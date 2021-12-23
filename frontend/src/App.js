@@ -9,8 +9,9 @@ import Navbar from './components/AdminComponents/Navbar/navbar'
 import Edit from './components/AdminComponents/edit';
 import SearchFlights from './components/AdminComponents/Search/searchFlights';
 import SearchResults from './components/AdminComponents/Search/searchResults';
-import CustomizedSteppers from './components/UserComponents/stepper/select';
+import Select from './components/UserComponents/stepper/select/select';
 import SwipeableTextMobileStepper from './components/UserComponents/home';
+import Book from './components/UserComponents/stepper/book';
 
 
 
@@ -25,7 +26,8 @@ const App = () => {
                 <Route path="/api/flight/updateFlightbyadmin/:id" exact component={Edit} />
                 <Route path = "/api/flight/searchFlight" exact component = {SearchFlights}/> 
                 <Route path="/list-search/:id" exact component={SearchResults}/>
-                <Route path="/select" exact component={CustomizedSteppers}></Route>
+                <Route path="/select" exact component={Select}></Route>
+                <Route path="/book" exact component={Book}></Route>
                 <Route path="/home" exact component={SwipeableTextMobileStepper}></Route>
             </div>
         </Router>

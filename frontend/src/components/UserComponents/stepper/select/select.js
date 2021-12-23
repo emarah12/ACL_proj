@@ -12,6 +12,7 @@ import StepConnector, { stepConnectorClasses } from '@mui/material/StepConnector
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
+import CustomizedAccordions from './accordion';
 
 const Item = styled(Paper)(({ theme }) => ({
   ...theme.typography.body2,
@@ -23,6 +24,18 @@ const Item = styled(Paper)(({ theme }) => ({
 const ColorlibConnector = styled(StepConnector)(({ theme }) => ({
   [`&.${stepConnectorClasses.alternativeLabel}`]: {
     top: 22,
+  },
+  [`&.${stepConnectorClasses.active}`]: {
+    [`& .${stepConnectorClasses.line}`]: {
+      backgroundImage:
+      'linear-gradient( 95deg,rgb(5,0, 78) 0%,rgb(5,0, 78) 0%,rgb(5,0, 78) 30%)',
+    },
+  },
+  [`&.${stepConnectorClasses.completed}`]: {
+    [`& .${stepConnectorClasses.line}`]: {
+      backgroundImage:
+      'linear-gradient( 95deg,rgb(5,0, 78) 0%,rgb(5,0, 78) 0%,rgb(5,0, 78) 30%)',
+    },
   },
   [`& .${stepConnectorClasses.line}`]: {
     height: 3,
@@ -44,6 +57,11 @@ const ColorlibStepIconRoot = styled('div')(({ theme, ownerState }) => ({
   borderRadius: '50%',
   justifyContent: 'center',
   alignItems: 'center',
+
+  ...(ownerState.active && {
+    backgroundImage:
+    'linear-gradient( 95deg,rgb(5,0, 78) 0%,rgb(5,0, 78) 0%,rgb(5,0, 78) 30%)',
+  }),
   ...(ownerState.completed && {
     backgroundImage:
     'linear-gradient( 95deg,rgb(5,0, 78) 0%,rgb(5,0, 78) 0%,rgb(5,0, 78) 30%)',
@@ -93,12 +111,7 @@ const steps = [
   'PAY',
 ];
 
-//change their values when the step is completed 
-const select=true;
-const book=false;
-const pay=false;
-
-export default function CustomizedSteppers() {
+export default function Select() {
   return (
     <Box sx={{ flexGrow: 1 }}>
         <Grid container spacing={4} style={{marginLeft:'10px'}}>
@@ -107,21 +120,25 @@ export default function CustomizedSteppers() {
     <Stack sx={{ width: '100%' }} spacing={4}>
       <Stepper 
         alternativeLabel
-        activeStep={1}
+        activeStep={0}
         connector={<ColorlibConnector />}
       >
         {steps.map((label) => (
           <Step key={label}>
             <StepLabel StepIconComponent={ColorlibStepIcon}>
-              <h5 style={{color:'#05004E'}}>
-              {label}</h5></StepLabel>
+                {(steps.indexOf(label) === 0) 
+                ?<h5 style={{color:'#05004E'}}>{label}</h5>: <h5 style={{color:'#E5E5E5'}}>{label}</h5>}  
+              </StepLabel>
           </Step>
         ))}
       </Stepper>
     </Stack> </Item>
+    <Item>
+      < CustomizedAccordions />
+    </Item>
     </Grid>
       <Grid item xs={4}>
-       <Item><h2 style={{color:'#05004E'}}>YOUR BOOKING</h2></Item>
+       <Item elevation={8}><h2 style={{color:'#05004E'}}>YOUR BOOKING</h2></Item>
        </Grid>
     </Grid>
     </Box>

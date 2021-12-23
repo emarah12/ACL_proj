@@ -110,17 +110,12 @@ const steps = [
   'PAY',
 ];
 
-//change their values when the step is completed 
-const select=true;
-const book=false;
-const pay=false;
-
-export default function CustomizedSteppers() {
+export default function Book() {
   return (
     <Box sx={{ flexGrow: 1 }}>
         <Grid container spacing={4} style={{marginLeft:'10px'}}>
          <Grid item xs={7} >
-             <Item > 
+             <Item> 
     <Stack sx={{ width: '100%' }} spacing={4}>
       <Stepper 
         alternativeLabel
@@ -130,15 +125,16 @@ export default function CustomizedSteppers() {
         {steps.map((label) => (
           <Step key={label}>
             <StepLabel StepIconComponent={ColorlibStepIcon}>
-              <h5 style={{color:'#05004E'}}>
-              {label}</h5></StepLabel>
+                {(steps.indexOf(label) === 1 || steps.indexOf(label) === 0) 
+                ?<h5 style={{color:'#05004E'}}>{label}</h5>: <h5 style={{color:'#E5E5E5'}}>{label}</h5>}  
+              </StepLabel>
           </Step>
         ))}
       </Stepper>
     </Stack> </Item>
     </Grid>
       <Grid item xs={4}>
-       <Item><h2 style={{color:'#05004E'}}>YOUR BOOKING</h2></Item>
+       <Item elevation={8}><h2 style={{color:'#05004E'}}>YOUR BOOKING</h2></Item>
        </Grid>
     </Grid>
     </Box>
