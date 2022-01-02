@@ -6,7 +6,9 @@ import MuiAccordionSummary from '@mui/material/AccordionSummary';
 import MuiAccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
 import FlightLandIcon from '@mui/icons-material/FlightLand';
-import SimpleAccordion from './flightsAccordion'
+import SimpleAccordion from './flightsAccordion';
+import EventIcon from '@mui/icons-material/Event';
+
 
 
 const Accordion = styled((props) => (
@@ -56,7 +58,7 @@ const [open, setOpen] = React.useState(false);
 
   return (
     <div>
-        <h5 style={{textAlign:'left'}}>* Please select departure flight</h5>
+        <h5 style={{textAlign:'left',marginBottom:'0'}}>* Please select departure flight<p style={{display:'inline-block',marginLeft:'28rem'}}><EventIcon style={{marginBottom:'-7px'}}/> 25/01/2022</p></h5>
       <Accordion expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
         <AccordionSummary aria-controls="panel1d-content" id="panel1d-header" style={{backgroundColor:'#05004E'}}>
           <h2 style={{color:'#FFFFFF',marginLeft:'17rem'}}>BER <FlightLandIcon/> CAI</h2>
@@ -67,7 +69,7 @@ const [open, setOpen] = React.useState(false);
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <h5 style={{textAlign:'left'}}>* Please select return flight</h5>
+      <h5 style={{textAlign:'left',marginBottom:'0'}}>* Please select return flight <p style={{display:'inline-block',marginLeft:'29rem'}}><EventIcon style={{marginBottom:'-7px'}}/> 25/02/2022</p></h5>
       {open === false? <div>
       <Accordion expanded={expanded === 'panel2'} onChange={handleChange('panel2')} disabled>
         <AccordionSummary aria-controls="panel2d-content" id="panel2d-header" style={{backgroundColor:'#05004E'}}>
