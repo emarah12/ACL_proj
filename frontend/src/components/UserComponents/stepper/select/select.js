@@ -12,7 +12,9 @@ import StepConnector, { stepConnectorClasses } from '@mui/material/StepConnector
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
+import FlightLandIcon from '@mui/icons-material/FlightLand';
 import CustomizedAccordions from './accordion';
+import CircleOutlinedIcon from '@mui/icons-material/CircleOutlined';
 
 const Item = styled(Paper)(({ theme }) => ({
   ...theme.typography.body2,
@@ -138,7 +140,26 @@ export default function Select() {
     </Item>
     </Grid>
       <Grid item xs={4}>
-       <Item elevation={8}><h2 style={{color:'#05004E'}}>YOUR BOOKING</h2></Item>
+       <Item elevation={8}><h2 style={{color:'#05004E'}}>YOUR BOOKING</h2>
+       <hr></hr>
+       <h5 >Berlin <FlightLandIcon></FlightLandIcon> Cairo</h5>
+       <div>
+       <h3 style={{display:'inline-block',color:'#000000',fontWeight:'bold'}}>Sun,25 Jan 2022</h3>
+       <h3 style={{display:'inline-block',marginLeft:'230px',color:'#000000',fontWeight:'bold'}}>65$</h3>
+       <h4 style={{textAlign:'left',marginTop:'-10px',color:'#FCA311'}}><CircleOutlinedIcon style={{fontSize:'12px',color:'#FCA311'}}/> Departure</h4>
+       <h4 style={{textAlign:'left',marginTop:'-20px',fontSize:'12px'}}>11:50:00</h4>
+      <h4 style={{textAlign:'left',marginTop:'-20px',fontSize:'25px'}}>|</h4>
+      <h4 style={{textAlign:'left',marginTop:'-35px',color:'#FCA311'}}><CircleOutlinedIcon style={{fontSize:'12px',color:'#FCA311'}}/> Arrival</h4>
+      <h4 style={{textAlign:'left',marginTop:'-20px',fontSize:'12px'}}>15:00:00</h4>
+      <h5 style={{textAlign:'right',marginTop:'-120px',marginBottom:'100px'}}>ECONOMY</h5>
+       </div>
+       <hr></hr>
+       <h5 >Cairo <FlightLandIcon></FlightLandIcon> Berlin</h5>
+       <h6 style={{textAlign:'left'}}>Sun,25 Jan 2022</h6>
+       <hr></hr>
+      <div style={{backgroundColor:'#E5E5E5'}}> <h2 style={{display:'inline-block',color:'#05004E',fontWeight:'700'}}>Total</h2> <h2 style={{display:'inline-block',marginLeft:'280px',color:'#05004E',fontWeight:'700'}}>300$</h2></div>
+       </Item>
+       <button>continue</button>
        </Grid>
     </Grid>
     </Box>
