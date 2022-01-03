@@ -12,6 +12,7 @@ import SearchResults from './components/AdminComponents/Search/searchResults';
 import Select from './components/UserComponents/stepper/select/select';
 import SwipeableTextMobileStepper from './components/UserComponents/home';
 import Book from './components/UserComponents/stepper/book';
+import ChildModal from './components/UserComponents/stepper/select/selectSeats'
 
 
 
@@ -29,6 +30,7 @@ const App = () => {
                 <Route path="/select" exact component={Select}></Route>
                 <Route path="/book" exact component={Book}></Route>
                 <Route path="/home" exact component={SwipeableTextMobileStepper}></Route>
+                <Route path="/selectSeats" exact component={ChildModal}></Route>
             </div>
         </Router>
      
