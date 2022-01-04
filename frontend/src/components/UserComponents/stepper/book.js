@@ -25,6 +25,11 @@ import BorderColorIcon from '@mui/icons-material/BorderColor';
 import AlternateEmailIcon from '@mui/icons-material/AlternateEmail';
 import ContactsIcon from '@mui/icons-material/Contacts';
 import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
+import SaveIcon from '@mui/icons-material/Save';
+import LoadingButton from '@mui/lab/LoadingButton';
+import Booking from './booking';
+import AirlineSeatReclineNormalIcon from '@mui/icons-material/AirlineSeatReclineNormal';
 
 const Item = styled(Paper)(({ theme }) => ({
   ...theme.typography.body2,
@@ -86,7 +91,8 @@ function ColorlibStepIcon(props) {
   const icons = {
     1: <FlightIcon />,
     2: <CalendarTodayIcon />,
-    3: <CreditCardIcon />,
+    3: <AirlineSeatReclineNormalIcon />,
+    4: <CreditCardIcon />,
   };
 
   return (
@@ -120,6 +126,7 @@ ColorlibStepIcon.propTypes = {
 const steps = [
   'SELECT',
   'BOOK',
+  'SEAT SELECTION',
   'PAY',
 ];
 
@@ -127,8 +134,16 @@ export default function Book() {
   const [values, setValues] = React.useState({
     username: '',
     password: '',
+    firstname:'',
+    lastname:'',
+    passport:'',
+    email:'',
     showPassword: false,
   });
+  const [loading, setLoading] = React.useState(false);
+  function handleClick() {
+    setLoading(true);
+  }
   const handleChange = (prop) => (event) => {
     setValues({ ...values, [prop]: event.target.value });
   };
@@ -167,6 +182,7 @@ export default function Book() {
     </Stack> </Item>
     
     <Item style={{marginTop:'20px',backgroundColor:'#E5E5E5'}}>
+      <h3 style={{backgroundColor:'#FCA311',color:'#FFFFFF',marginTop:'0px'}}>Create an account</h3>
       <Typography><p>* choose a username and a password to autosave your data for future use</p>
       <div style={{marginLeft:'20px'}}>
         
@@ -207,74 +223,80 @@ export default function Book() {
     
     <LoginModal />
     </Item>
+    <Item style={{marginTop:'15px',backgroundColor:'#E5E5E5'}}>
+    <h3 style={{backgroundColor:'#05004E',color:'#FFFFFF',marginTop:'0px'}}>Account holder details</h3>
+      <h3 style={{textAlign:'left',color:'#05004E',fontWeight:'700'}}><BorderColorIcon /> Personal details</h3>
+    
    
-    <Item style={{marginTop:'15px'}}><h3 style={{textAlign:'left',backgroundColor:'#05004E',color:'#FFFFFF'}}><BorderColorIcon /> Personal details</h3>
-    <Item>
-    <FormControl sx={{ m: 1, width: '43ch',transform: 'translate(0%, 0%)' }} variant="filled">
-        <InputLabel htmlFor="filled-adornment-password">First name</InputLabel>
-          <FilledInput
-            id="filled-adornment-username"
-            value={values.username}
-            onChange={handleChange('username')}
-            aria-describedby="filled-username-helper-text"
-            inputProps={{
-              'aria-label': 'firstname',
-            }}
-          />
-        </FormControl>
-        <FormControl sx={{ m: 1, width: '43ch',transform: 'translate(0%, 0%)' }} variant="filled">
-        <InputLabel htmlFor="filled-adornment-password">Last name</InputLabel>
-          <FilledInput
-            id="filled-adornment-username"
-            value={values.username}
-            onChange={handleChange('username')}
-            aria-describedby="filled-username-helper-text"
-            inputProps={{
-              'aria-label': 'lastname',
-            }}
-          />
-        </FormControl>
-     </Item>
-     <Item style={{marginTop:'15px'}}><h3 style={{textAlign:'left',backgroundColor:'#05004E',color:'#FFFFFF'}}><ContactsIcon /> Passport details</h3>
-     <FormControl sx={{ m: 1, width: '90ch' ,transform: 'translate(0%, 0%)'}} variant="filled">
-        <InputLabel htmlFor="filled-adornment-password">Passport Number</InputLabel>
-          <FilledInput
-            id="filled-adornment-username"
-            value={values.username}
-            onChange={handleChange('username')}
-            aria-describedby="filled-username-helper-text"
-            inputProps={{
-              'aria-label': 'passportnumber',
-            }}
-          />
-        </FormControl>
-        
-     </Item>
-     <Item style={{marginTop:'15px'}}><h3 style={{textAlign:'left',backgroundColor:'#05004E',color:'#FFFFFF'}}><AlternateEmailIcon /> Contact details</h3>
+    <TextField
+          label="First name"
+          id="outlined-start-adornment"
+          sx={{ m: 1, width: '43ch' }}
+          id="filled-adornment-firstname"
+          value={values.firstname}
+          onChange={handleChange('firstname')}
+          inputProps={{
+            'aria-label': 'firstname',
+          }}
+        />
+
+      
+<TextField
+          label="Last name"
+          id="outlined-start-adornment"
+          sx={{ m: 1, width: '43ch' }}
+          id="filled-adornment-lastname"
+          value={values.lastname}
+          onChange={handleChange('lastname')}
+          inputProps={{
+            'aria-label': 'lastname',
+          }}
+        />
    
-     <FormControl sx={{ m: 1, width: '90ch' ,transform: 'translate(0%, 0%)'}} variant="filled">
-        <InputLabel htmlFor="filled-adornment-password">Email</InputLabel>
-          <FilledInput
-            id="filled-adornment-username"
-            value={values.username}
-            onChange={handleChange('username')}
-            aria-describedby="filled-username-helper-text"
-            inputProps={{
-              'aria-label': 'passportnumber',
-            }}
-            endAdornment={
-              <InputAdornment position="end">
-               .com
-              </InputAdornment>
-            }
-          />
-        </FormControl>
+    <h3 style={{textAlign:'left',color:'#05004E',fontWeight:'700'}}><ContactsIcon /> Passport details</h3>
+     <TextField
+          label="Passport Number"
+          id="outlined-start-adornment"
+          sx={{ m: 1, width: '90ch' }}
+          id="filled-adornment-passport"
+          value={values.passport}
+          onChange={handleChange('passport')}
+          inputProps={{
+            'aria-label': 'passport',
+          }}
+        />
+   
+     <h3 style={{textAlign:'left',color:'#05004E',fontWeight:'700'}}><AlternateEmailIcon /> Contact details</h3>
+   
+     <TextField
+          label="Email"
+          id="outlined-start-adornment"
+          sx={{ m: 1, width: '90ch' }}
+          id="filled-adornment-email"
+          value={values.passport}
+          onChange={handleChange('email')}
+          InputProps={{
+            'aria-label': 'email',
+            endAdornment: <InputAdornment position="end">.com</InputAdornment>,
+          }}
+        />
         <p style={{textAlign:'left',marginTop:'-5px',transform: 'translate(2%, 0%)'}}>* please provide a valid email to send your tickets on</p>
-     </Item>
+      <LoadingButton
+        onClick={handleClick}
+        loading={loading}
+        loadingPosition="start"
+        startIcon={<SaveIcon />}
+        variant="contained"
+        style={{backgroundColor:'#05004E',transform: 'translate(320%, 0%)'}}
+      >
+        Save
+      </LoadingButton>
      </Item>
     </Grid>
       <Grid item xs={4}>
-       <Item elevation={8}><h2 style={{color:'#05004E'}}>YOUR TRIP SUMMARY</h2></Item>
+       <Item elevation={8}><h2 style={{color:'#05004E'}}>YOUR TRIP SUMMARY</h2>
+       <Booking />
+       </Item>
        </Grid>
     </Grid>
     </Box>
