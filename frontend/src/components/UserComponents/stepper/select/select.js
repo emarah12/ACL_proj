@@ -22,7 +22,7 @@ import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import Button from '@mui/material/Button';
 import PersonIcon from '@mui/icons-material/Person';
 import ChildModal from './selectSeats';
-import LoginModal from './loginSignupPopper';
+import SendIcon from '@mui/icons-material/Send';
 
 const Item = styled(Paper)(({ theme }) => ({
   ...theme.typography.body2,
@@ -220,7 +220,8 @@ export default function Select() {
       <div style={{backgroundColor:'#E5E5E5'}}> <h2 style={{display:'inline-block',color:'#05004E',fontWeight:'700'}}>Total</h2> <h2 style={{display:'inline-block',marginLeft:'280px',color:'#05004E',fontWeight:'700'}}>130$</h2></div>
      {/* //conditionally render this button */}
       
-    <LoginModal />
+     <Button variant="contained" endIcon={<SendIcon />} style={{width:'405px',backgroundColor:'#05004E'}}
+      >Continue</Button>
        </Item>
        
        </Grid>
