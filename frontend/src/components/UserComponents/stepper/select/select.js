@@ -20,9 +20,9 @@ import AirlineSeatReclineNormalIcon from '@mui/icons-material/AirlineSeatRecline
 import IconButton from '@mui/material/IconButton';
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import Button from '@mui/material/Button';
-import SendIcon from '@mui/icons-material/Send';
 import PersonIcon from '@mui/icons-material/Person';
 import ChildModal from './selectSeats';
+import LoginModal from './loginSignupPopper';
 
 const Item = styled(Paper)(({ theme }) => ({
   ...theme.typography.body2,
@@ -121,7 +121,9 @@ const steps = [
   'PAY',
 ];
 
+
 export default function Select() {
+
   return (
     <Box sx={{ flexGrow: 1 }}>
         <Grid container spacing={4} style={{marginLeft:'10px'}}>
@@ -217,7 +219,8 @@ export default function Select() {
        <hr></hr>
       <div style={{backgroundColor:'#E5E5E5'}}> <h2 style={{display:'inline-block',color:'#05004E',fontWeight:'700'}}>Total</h2> <h2 style={{display:'inline-block',marginLeft:'280px',color:'#05004E',fontWeight:'700'}}>130$</h2></div>
      {/* //conditionally render this button */}
-      <Button variant="contained" endIcon={<SendIcon />} style={{width:'405px',backgroundColor:'#05004E'}}>Continue</Button>
+      
+    <LoginModal />
        </Item>
        
        </Grid>

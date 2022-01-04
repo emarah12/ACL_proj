@@ -104,16 +104,16 @@ export default function ChildModal() {
           <Item style={{backgroundColor:'#05004E'}}></Item>
         </Grid>
         <Grid item xs={1.5}>
-          <Item></Item>
+          <Item style={{backgroundColor:'#05004E'}}></Item>
         </Grid>
         <Grid item xs={1.5}>
-          <Item></Item>
+          <Item style={{backgroundColor:'#05004E'}}></Item>
         </Grid>
         <Grid item xs={1}>
           
         </Grid>
         <Grid item xs={1.5}>
-          <Item></Item>
+          <Item style={{backgroundColor:'#05004E'}}></Item>
         </Grid>
         <Grid item xs={1.5}>
           <Item></Item>
@@ -294,7 +294,7 @@ export default function ChildModal() {
         </Grid>
         {/* last row */}
         <Grid item xs={4}>
-          <Item>Rear Cabin</Item>
+          <Item>Rear Door</Item>
         </Grid>
         <Grid item xs={8}>
           <Item><WcIcon style={{fontSize:'16px'}}/> Toilet</Item>
