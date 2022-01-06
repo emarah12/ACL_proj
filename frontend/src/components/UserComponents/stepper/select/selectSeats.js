@@ -38,6 +38,7 @@ import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 import MeetingRoomIcon from '@mui/icons-material/MeetingRoom';
 import Tooltip, { tooltipClasses } from '@mui/material/Tooltip';
 import SendIcon from '@mui/icons-material/Send';
+import Seat from '../seat';
 
 const LightTooltip = styled(({ className, ...props }) => (
   <Tooltip {...props} classes={{ popper: className }} />
@@ -210,7 +211,7 @@ export default function Book() {
        <h1 style={{color:'#FCA311'}}>BER <FlightLandIcon/> CAI</h1>
        <Item elevation={7} style={{backgroundColor:'#E5E5E5'}}>
          <h2 style={{backgroundColor:'#05004E',color:'white',marginBottom:'-5px'}}><PersonIcon /> Passenger 1</h2>
-         <h3 style={{backgroundColor:'gray',color:'black',marginBottom:'-5px',marginTop:'10px'}}>Economy</h3>
+         <h3 style={{backgroundColor:'#FCA311',color:'black',marginBottom:'-5px',marginTop:'10px'}}>Economy</h3>
          <Grid container spacing={0.5} style={{transform:'translate(0%,10%)'}}>
          <ExitToAppIcon style={{transform:'translate(170%,120%)',color:'black'}}/>
          <ExitToAppIcon style={{transform:'translate(90%,2080%)',color:'black'}}/>
@@ -316,7 +317,7 @@ export default function Book() {
        </Grid>
       <Grid item xs={4}>
        <Item elevation={8}><h2 style={{color:'#05004E'}}>ALLOCATED SEATS</h2>
-       <Booking />
+       <Seat />
        </Item>
        </Grid>
     </Grid>
