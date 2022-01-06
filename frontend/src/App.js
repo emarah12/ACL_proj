@@ -21,7 +21,7 @@ const App = () => {
     return(
     <Router>
             <div>
-                <Navbar />
+                {/* <Navbar /> */}
                 <Route path="/api/flight" exact component={AllFlights} />
                 <Route path="/api/flight/create"exact component={CreateFlight} />
                 <Route path="/api/flight/updateFlightbyadmin/:id" exact component={Edit} />

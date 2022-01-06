@@ -39,6 +39,7 @@ import MeetingRoomIcon from '@mui/icons-material/MeetingRoom';
 import Tooltip, { tooltipClasses } from '@mui/material/Tooltip';
 import SendIcon from '@mui/icons-material/Send';
 import Seat from '../seat';
+import Menu from '../../menu/menu';
 
 const LightTooltip = styled(({ className, ...props }) => (
   <Tooltip {...props} classes={{ popper: className }} />
@@ -186,6 +187,7 @@ export default function Book() {
 
   return (
     <Box sx={{ flexGrow: 1 }}>
+      <Menu />
         <Grid container spacing={4} style={{marginLeft:'10px'}}>
          <Grid item xs={7} >
              <Item> 
@@ -322,5 +324,6 @@ export default function Book() {
        </Grid>
     </Grid>
     </Box>
+   
   );
 }
