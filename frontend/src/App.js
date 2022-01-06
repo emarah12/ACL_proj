@@ -12,7 +12,7 @@ import SearchResults from './components/AdminComponents/Search/searchResults';
 import Select from './components/UserComponents/stepper/select/select';
 import SwipeableTextMobileStepper from './components/UserComponents/home';
 import Book from './components/UserComponents/stepper/book';
-import ChildModal from './components/UserComponents/stepper/select/selectSeats'
+import ChildModal from './components/UserComponents/stepper/select/selectSeats';
 
 
 
