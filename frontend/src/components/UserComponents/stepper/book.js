@@ -138,6 +138,9 @@ export default function Book() {
     lastname:'',
     passport:'',
     email:'',
+    address:'',
+    country_code:'',
+    mobile_number:'',
     showPassword: false,
   });
   const [loading, setLoading] = React.useState(false);
@@ -252,7 +255,17 @@ export default function Book() {
             'aria-label': 'lastname',
           }}
         />
-   
+       <TextField
+          label="Address"
+          id="outlined-start-adornment"
+          sx={{ m: 1, width: '88ch' }}
+          id="filled-adornment-passport"
+          value={values.address}
+          onChange={handleChange('address')}
+          inputProps={{
+            'aria-label': 'address',
+          }}
+        />
     <h3 style={{textAlign:'left',color:'#05004E',fontWeight:'700'}}><ContactsIcon /> Passport details</h3>
      <TextField
           label="Passport Number"
@@ -267,7 +280,32 @@ export default function Book() {
         />
    
      <h3 style={{textAlign:'left',color:'#05004E',fontWeight:'700'}}><AlternateEmailIcon /> Contact details</h3>
-   
+     <TextField
+          label="Country Code"
+          id="outlined-start-adornment"
+          sx={{ m: 1, width: '20ch' }}
+          id="filled-adornment-country_code"
+          value={values.country_code}
+          onChange={handleChange('country_code')}
+          InputProps={{
+            'aria-label': 'country_code',
+            startAdornment: <InputAdornment position="start">+</InputAdornment>,
+          
+          }}
+        />
+         <TextField
+          label="Telephone Number"
+          id="outlined-start-adornment"
+          sx={{ m: 1, width: '67ch' }}
+          id="filled-adornment-telephone_number"
+          value={values.country_code}
+          onChange={handleChange('telephone_number')}
+          inputProps={{
+            'aria-label': 'telephone_number',
+         
+          }}
+          
+        />
      <TextField
           label="Email"
           id="outlined-start-adornment"
@@ -287,7 +325,7 @@ export default function Book() {
         loadingPosition="start"
         startIcon={<SaveIcon />}
         variant="contained"
-        style={{backgroundColor:'#05004E',transform: 'translate(320%, 0%)'}}
+        style={{backgroundColor:'#05004E',transform: 'translate(320%, 0%)',color:'white'}}
       >
         Save
       </LoadingButton>
