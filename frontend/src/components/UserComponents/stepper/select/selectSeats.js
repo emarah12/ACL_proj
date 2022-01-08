@@ -40,6 +40,13 @@ import Tooltip, { tooltipClasses } from '@mui/material/Tooltip';
 import SendIcon from '@mui/icons-material/Send';
 import Seat from '../seat';
 import Menu from '../../menu/menu';
+import Snackbar from '@mui/material/Snackbar';
+import MuiAlert from '@mui/material/Alert';
+
+const Alert = React.forwardRef(function Alert(props, ref) {
+  return <MuiAlert elevation={2} ref={ref} variant="filled" {...props} />;
+});
+
 
 const LightTooltip = styled(({ className, ...props }) => (
   <Tooltip {...props} classes={{ popper: className }} />
@@ -153,6 +160,19 @@ const steps = [
 ];
 
 export default function Book() {
+  const [open, setOpen] = React.useState(false);
+
+  const handleClickSnackbar = () => {
+    setOpen(true);
+  };
+
+  const handleClose = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+
+    setOpen(false);
+  };
   const [values, setValues] = React.useState({
     username: '',
     password: '',
@@ -187,7 +207,6 @@ export default function Book() {
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <Menu />
         <Grid container spacing={4} style={{marginLeft:'10px'}}>
          <Grid item xs={7} >
              <Item> 
@@ -225,7 +244,7 @@ export default function Book() {
                      {seat}
                  </Grid>
                   <Grid item xs={0.5}>
-                  <IconButton style={{color:'#E5E5E5'}}>
+                  <IconButton style={{color:'#E5E5E5'}} >
                   <WeekendIcon />
                 </IconButton>
                 </Grid>
@@ -238,10 +257,11 @@ export default function Book() {
           <AirlineSeatReclineNormalIcon sx={{fontSize:'14px'}}/>  {row} {seat}
           </React.Fragment>
         }>
-                  <IconButton style={{color:'#05004E'}}>
+                  <IconButton style={{color:'#05004E'}} onClick={handleClickSnackbar}>
                   <WeekendIcon />
                 </IconButton>
                 </LightTooltip>
+        
                 </Grid>
                 {row}
                 </div>
@@ -269,7 +289,7 @@ export default function Book() {
           <AirlineSeatReclineNormalIcon sx={{fontSize:'14px'}}/>  0 {seat}
           </React.Fragment>
         }>
-       <IconButton style={{color:'#05004E',transform:'translate(-26%,0%)'}}>
+       <IconButton style={{color:'#05004E',transform:'translate(-26%,0%)'}} onClick={handleClickSnackbar}>
        <WeekendIcon />
      </IconButton>
      </LightTooltip>
@@ -285,7 +305,7 @@ export default function Book() {
           <AirlineSeatReclineNormalIcon sx={{fontSize:'14px'}}/>  {row} {seat}
           </React.Fragment>
         }>
-                  <IconButton style={{color:'#05004E'}}>
+                  <IconButton style={{color:'#05004E'}} onClick={handleClickSnackbar}>
                   <WeekendIcon />
                 </IconButton>
                 </LightTooltip>
@@ -316,13 +336,20 @@ export default function Book() {
            </Item>
            <Button variant="contained" endIcon={<SendIcon />} style={{width:'750px',backgroundColor:'#05004E'}}>Next</Button>
        </Item>
+       
        </Grid>
+      
       <Grid item xs={4}>
        <Item elevation={8}><h2 style={{color:'#05004E'}}>ALLOCATED SEATS</h2>
        <Seat />
        </Item>
        </Grid>
     </Grid>
+    <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+        <Alert onClose={handleClose} severity="success" sx={{ width: '100%' }} >
+          Seat selected successfully!
+        </Alert>
+      </Snackbar>
     </Box>
    
   );

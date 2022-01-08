@@ -10,7 +10,7 @@ import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
 import SwipeableViews from 'react-swipeable-views';
 import { autoPlay } from 'react-swipeable-views-utils';
 import SimplePaper from './paper';
-
+import Alert from '@mui/material/Alert';
 
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
@@ -51,19 +51,7 @@ function SwipeableTextMobileStepper() {
   return (
       <div>
     <Box sx={{ width: '100%' , flexGrow: 1 }}>
-      <Paper
-        square
-        elevation={0}
-        sx={{
-          display: 'flex',
-          alignItems: 'center',
-          height: 50,
-          pl: 2,
-          bgcolor: 'background.default',
-        }}
-      >
-        <Typography>{images[activeStep].label}</Typography>
-      </Paper>
+ 
       <AutoPlaySwipeableViews
         axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
         index={activeStep}
@@ -72,6 +60,7 @@ function SwipeableTextMobileStepper() {
       >
         {images.map((step, index) => (
           <div key={step.label}>
+            <Alert severity="info">{step.label}</Alert>
             {Math.abs(activeStep - index) <= 2 ? (
               <Box
                 component="img"

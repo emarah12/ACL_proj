@@ -182,7 +182,7 @@ export default function Book() {
     </Stack> </Item>
     
     <Item style={{marginTop:'20px',backgroundColor:'#E5E5E5'}}>
-      <h3 style={{backgroundColor:'#FCA311',color:'#FFFFFF',marginTop:'0px'}}>Create an account</h3>
+      <h3 style={{backgroundColor:'#05004E',color:'#FFFFFF',marginTop:'0px'}}>Create an account</h3>
       <Typography><p>* choose a username and a password to autosave your data for future use</p>
       <div style={{marginLeft:'20px'}}>
         

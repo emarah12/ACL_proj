@@ -15,8 +15,27 @@ import AirplaneTicketIcon from '@mui/icons-material/AirplaneTicket';
 import LuggageIcon from '@mui/icons-material/Luggage';
 import BusinessCenterIcon from '@mui/icons-material/BusinessCenter';
 import AirlineSeatReclineNormalIcon from '@mui/icons-material/AirlineSeatReclineNormal';
-    
+import Snackbar from '@mui/material/Snackbar';
+import MuiAlert from '@mui/material/Alert';
+
+const Alert = React.forwardRef(function Alert(props, ref) {
+  return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+});
+
 export default function SimpleAccordion() {
+  const [open, setOpen] = React.useState(false);
+
+  const handleClick = () => {
+    setOpen(true);
+  };
+
+  const handleClose = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+
+    setOpen(false);
+  };
   return (
     <div>
       <Accordion style={{backgroundColor:'#E5E5E5',borderLeft:'5px solid #FCA311'}}>
@@ -50,12 +69,11 @@ export default function SimpleAccordion() {
                   <p style={{color:'gray',fontSize:'10px',fontWeight:'700',marginTop:'-10',marginBottom:'-10px'}}><LuggageIcon style={{fontSize:'10px'}}/><LuggageIcon style={{fontSize:'10px'}}/>Piece(s) 2, per piece 23 Kg checked baggage</p>
                   <p style={{color:'gray',fontSize:'10px',fontWeight:'700',marginLeft:'-5px',marginBottom:'-10px'}}><BusinessCenterIcon style={{fontSize:'10px'}}/> Pieces 1, Total weight 7 kg hand baggage</p>
                   <p style={{color:'gray',fontSize:'10px',fontWeight:'700',marginLeft:'-90px',}}><AirlineSeatReclineNormalIcon style={{fontSize:'12px'}}/> Standard seat selection</p>
-                  <Button variant="outlined" style={{borderColor:'#05004E',color:'#FFFFFF',width:'300px',backgroundColor:'#05004E'}}> select fare </Button>
-              </Typography>
-              </Paper>
-              
+                  <Button variant="outlined" style={{borderColor:'#05004E',color:'#FFFFFF',width:'300px',backgroundColor:'#05004E'}} onClick={handleClick}> select fare </Button>
+              </Typography>   
+              </Paper>  
             </Grid>
-            <Grid item xs={6} md={6}>
+         <Grid item xs={6} md={6}>
             <Paper elevation={3} style={{backgroundColor:'#FFFFFF',transform: 'translate(5%, -5%)',width:'300px'}}> 
               <Typography>
                 <p style={{color:'#FCA311',marginBottom:'20px',paddingTop:'10px'}}>Business from</p>
@@ -90,6 +108,11 @@ export default function SimpleAccordion() {
           </Typography>
         </AccordionDetails>
       </Accordion>
+      <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+        <Alert onClose={handleClose} severity="success" sx={{ width: '100%' }} >
+          Flight added successfully!
+        </Alert>
+      </Snackbar>
     </div>
   );
 }

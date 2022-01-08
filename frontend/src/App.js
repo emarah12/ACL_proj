@@ -13,14 +13,15 @@ import Select from './components/UserComponents/stepper/select/select';
 import SwipeableTextMobileStepper from './components/UserComponents/home';
 import Book from './components/UserComponents/stepper/book';
 import ChildModal from './components/UserComponents/stepper/select/selectSeats';
-
-
+import Menu from './components/UserComponents/menu/menu';
+import LoginModal from './components/UserComponents/stepper/select/loginPopper';
 
 
 const App = () => {
     return(
     <Router>
             <div>
+                <Menu />
                 {/* <Navbar /> */}
                 <Route path="/api/flight" exact component={AllFlights} />
                 <Route path="/api/flight/create"exact component={CreateFlight} />
@@ -31,6 +32,7 @@ const App = () => {
                 <Route path="/book" exact component={Book}></Route>
                 <Route path="/home" exact component={SwipeableTextMobileStepper}></Route>
                 <Route path="/selectSeats" exact component={ChildModal}></Route>
+                <Route path="/login" exact component={LoginModal}></Route>
             </div>
         </Router>
      
