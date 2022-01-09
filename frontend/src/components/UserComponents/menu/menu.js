@@ -33,7 +33,7 @@ export default function ButtonAppBar() {
            Explore
               </Button>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-          <img src={Route} style={{height:'70px',width:'250px',transform:'translate(300%,0%)'}} />
+         
           </Typography>
           <IconButton
             edge="End"
