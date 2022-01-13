@@ -63,6 +63,15 @@ const Item = styled(Paper)(({ theme }) => ({
 
 
 export default function Profile() {
+    const changeSeat = () => {
+        window.location.href="/selectSeats";
+      };
+      const changeFlight = () => {
+        window.location.href="/select";
+      };
+      const cancelFlight = () => {
+      //logic 
+      };
   const [open, setOpen] = React.useState(false);
 
   const handleClickSnackbar = () => {
@@ -180,7 +189,7 @@ export default function Profile() {
          {/* <Fab  aria-label="add" size='small' style={{backgroundColor:'#FCA311',transform:'scale(0.5)',marginTop:'-46px',marginLeft:'160px'}}>
         <AddIcon style={{color:'#05004E'}} />
       </Fab> */}
-      <Button style={{transform:'translate(200%,-120%)',width:'50px',marginBottom:'-35px'}}>ADD</Button>
+      <Button style={{transform:'translate(200%,-120%)',width:'50px',marginBottom:'-35px',fontWeight:700}}>ADD</Button>
       </FormControl>
       <FormControl variant="standard">
         <InputLabel htmlFor="component-simple" style={{color:'#E5E5E5'}}>Address</InputLabel>
@@ -215,7 +224,7 @@ export default function Profile() {
           }
          style={{marginBottom:'10px',color:'white',width:'380px'}}/>
       </FormControl>
-      <LoadingButton style={{transform:'translate(140%,0%)',backgroundColor:'#E5E5E5',color:'#FCA311',fontWeight:700}}
+      <LoadingButton style={{transform:'translate(150%,0%)',backgroundColor:'#E5E5E5',color:'#FCA311',fontWeight:700}}
         color="secondary"
         onClick={handleClick}
         loading={loading}
@@ -286,9 +295,9 @@ export default function Profile() {
       }}
     >
          <ButtonGroup variant="text" aria-label="text button group" >
-        <Button style={{color:'#05004E'}}>Change Seat</Button>
-        <Button style={{color:'#05004E'}}>Change Flight</Button>
-        <Button style={{color:'#05004E'}}>Cancel Flight</Button>
+        <Button style={{color:'#05004E'}} onClick={changeSeat}>Change Seat</Button>
+        <Button style={{color:'#05004E'}} onClick={changeFlight}>Change Flight</Button>
+        <Button style={{color:'#05004E'}} onClick={cancelFlight}>Cancel Flight</Button>
       </ButtonGroup>
     </Box>
 </Item>

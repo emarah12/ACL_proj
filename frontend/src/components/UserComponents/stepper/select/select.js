@@ -127,7 +127,9 @@ const steps = [
 
 
 export default function Select() {
-
+  const handleContinue = (event) => {
+    window.location.href="/book";
+  };
   return (
     <Box sx={{ flexGrow: 1 }}>
         <Grid container spacing={4} style={{marginLeft:'10px'}}>
@@ -156,7 +158,9 @@ export default function Select() {
       <Grid item xs={4}>
        <Item elevation={8}><h2 style={{color:'#05004E'}}>YOUR BOOKING</h2>
       <Booking />
-      <Button variant="contained" endIcon={<SendIcon />} style={{width:'405px',backgroundColor:'#05004E'}}
+      <Button variant="contained" endIcon={<SendIcon />} 
+      onClick={handleContinue}
+      style={{width:'405px',backgroundColor:'#05004E'}}
  >Continue</Button>
        </Item>
        

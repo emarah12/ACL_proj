@@ -11,6 +11,9 @@ import FlightTakeoffIcon from '@mui/icons-material/FlightTakeoff';
 import HomeIcon from '@mui/icons-material/Home';
 import SettingsIcon from '@mui/icons-material/Settings';
 export default function ButtonAppBar() {
+  const handleHome = (event) => {
+    window.location.href="/home";
+  };
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static" style={{backgroundColor:'#FDB035',boxShadow:'0px 5px 5px #CCCCCC'}}>
@@ -21,6 +24,7 @@ export default function ButtonAppBar() {
             color="inherit"
             aria-label="menu"
             sx={{ mr: 2 }}
+            onClick={handleHome}
           >
             <HomeIcon /> 
           </IconButton>
