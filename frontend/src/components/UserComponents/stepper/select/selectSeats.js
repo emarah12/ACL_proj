@@ -42,7 +42,8 @@ import Seat from '../seat';
 import Menu from '../../menu/menu';
 import Snackbar from '@mui/material/Snackbar';
 import MuiAlert from '@mui/material/Alert';
-
+import LabelBottomNavigation from './price'
+import PaymentIcon from '@mui/icons-material/Payment';
 const Alert = React.forwardRef(function Alert(props, ref) {
   return <MuiAlert elevation={2} ref={ref} variant="filled" {...props} />;
 });
@@ -342,6 +343,7 @@ export default function Book() {
       <Grid item xs={4}>
        <Item elevation={8}><h2 style={{color:'#05004E'}}>ALLOCATED SEATS</h2>
        <Seat />
+       <Button variant="contained" startIcon={<PaymentIcon />} style={{width:'400px',backgroundColor:'#05004E',marginTop:'10px'}}>Pay</Button>
        </Item>
        </Grid>
     </Grid>
@@ -350,6 +352,7 @@ export default function Book() {
           Seat selected successfully!
         </Alert>
       </Snackbar>
+      
     </Box>
    
   );

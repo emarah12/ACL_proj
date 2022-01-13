@@ -15,7 +15,7 @@ import Book from './components/UserComponents/stepper/book';
 import ChildModal from './components/UserComponents/stepper/select/selectSeats';
 import Menu from './components/UserComponents/menu/menu';
 import LoginModal from './components/UserComponents/stepper/select/loginPopper';
-
+import Profile from './components/UserComponents/profile'
 
 const App = () => {
     return(
@@ -33,6 +33,7 @@ const App = () => {
                 <Route path="/home" exact component={SwipeableTextMobileStepper}></Route>
                 <Route path="/selectSeats" exact component={ChildModal}></Route>
                 <Route path="/login" exact component={LoginModal}></Route>
+                <Route path="/profile" exact component={Profile}></Route>
             </div>
         </Router>
      

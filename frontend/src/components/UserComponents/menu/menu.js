@@ -8,8 +8,8 @@ import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import FlightTakeoffIcon from '@mui/icons-material/FlightTakeoff';
-import Route from './photos/route.png'
-
+import HomeIcon from '@mui/icons-material/Home';
+import SettingsIcon from '@mui/icons-material/Settings';
 export default function ButtonAppBar() {
   return (
     <Box sx={{ flexGrow: 1 }}>
@@ -22,16 +22,9 @@ export default function ButtonAppBar() {
             aria-label="menu"
             sx={{ mr: 2 }}
           >
-            <FlightTakeoffIcon /> 
+            <HomeIcon /> 
           </IconButton>
-          <Button
-            edge="Start"
-            color="inherit"
-            style={{transform:'translate(-23%,0%)',fontWeight:'700'}}
-            
-          >
-           Explore
-              </Button>
+          
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
          
           </Typography>
