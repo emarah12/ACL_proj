@@ -50,7 +50,8 @@ import MailIcon from '@mui/icons-material/Mail';
 import ButtonGroup from '@mui/material/ButtonGroup';
 import CallIcon from '@mui/icons-material/Call';
 import HomeIcon from '@mui/icons-material/Home';
-
+import AddIcon from '@mui/icons-material/Add';
+import Fab from '@mui/material/Fab';
 
 const Item = styled(Paper)(({ theme }) => ({
   ...theme.typography.body2,
@@ -175,8 +176,11 @@ export default function Profile() {
       <FormControl variant="standard">
         <InputLabel htmlFor="component-simple" style={{color:'#E5E5E5'}}>Telephone Number</InputLabel>
         <Input id="component-simple" value={telephone} 
-        
         onChange={handleTelephoneChange} style={{marginBottom:'10px',color:'white'}}/>
+         {/* <Fab  aria-label="add" size='small' style={{backgroundColor:'#FCA311',transform:'scale(0.5)',marginTop:'-46px',marginLeft:'160px'}}>
+        <AddIcon style={{color:'#05004E'}} />
+      </Fab> */}
+      <Button style={{transform:'translate(200%,-120%)',width:'50px',marginBottom:'-35px'}}>ADD</Button>
       </FormControl>
       <FormControl variant="standard">
         <InputLabel htmlFor="component-simple" style={{color:'#E5E5E5'}}>Address</InputLabel>
@@ -211,7 +215,16 @@ export default function Profile() {
           }
          style={{marginBottom:'10px',color:'white',width:'380px'}}/>
       </FormControl>
-      
+      <LoadingButton style={{transform:'translate(140%,0%)',backgroundColor:'#E5E5E5',color:'#FCA311',fontWeight:700}}
+        color="secondary"
+        onClick={handleClick}
+        loading={loading}
+        loadingPosition="start"
+        startIcon={<SaveIcon />}
+        variant="contained"
+      >
+        Save
+      </LoadingButton>
    
         {/* {/* <Input defaultValue="Lobna"  style={{marginBottom:'10px',color:'white'}}/> */}
         {/* <Input defaultValue="El Nahas"  style={{marginBottom:'10px',color:'white'}}/>
