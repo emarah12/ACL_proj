@@ -83,7 +83,7 @@ export default function SimpleAccordion() {
                   <p style={{color:'gray',fontSize:'10px',fontWeight:'700',marginTop:'-10',marginBottom:'-10px'}}><LuggageIcon style={{fontSize:'10px'}}/><LuggageIcon style={{fontSize:'10px'}}/><LuggageIcon style={{fontSize:'10px'}}/>Piece(s) 3, per piece 32 Kg checked baggage</p>
                   <p style={{color:'gray',fontSize:'10px',fontWeight:'700',marginLeft:'-5px',marginBottom:'-10px'}}><BusinessCenterIcon style={{fontSize:'10px'}}/><BusinessCenterIcon style={{fontSize:'10px'}}/> Pieces 2, Total weight 15 kg hand baggage</p>
                   <p style={{color:'gray',fontSize:'10px',fontWeight:'700',marginLeft:'-105px',}}><AirlineSeatReclineNormalIcon style={{fontSize:'12px'}}/> Free seat selection</p>
-                  <Button variant="outlined" style={{borderColor:'#FCA311',color:'#FFFFFF',width:'300px',backgroundColor:'#FCA311'}}> select fare </Button>
+                  <Button variant="outlined" style={{borderColor:'#FCA311',color:'#FFFFFF',width:'300px',backgroundColor:'#FCA311'}} onClick={handleClick}> select fare </Button>
               </Typography>
               </Paper>
               
