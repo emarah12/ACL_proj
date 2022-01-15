@@ -17,7 +17,12 @@
   },
   "homepage": "https://github.com/lobnaelnahas10/flight-reservation#readme",
   "dependencies": {
+    "bcrypt": "^5.0.1",
     "cors": "^2.8.5",
+    "express": "^4.17.2",
     "moment": "^2.29.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
   }
 }
