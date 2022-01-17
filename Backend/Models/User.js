@@ -69,6 +69,11 @@ const flightSchema = new mongoose.Schema({
         type: Number,
         unique: true
     },   index: true,
+
+    seat:{
+        type: mongoose.Types.ObjectId,
+        ref: Seat
+    }
      
 
 });
@@ -95,7 +100,7 @@ userSchema.methods.toJSON = function() { // Return the user info as JASON withou
     const userObject = user.toObject();
 
     // return _.omit(userObject, ["isBanned", "password", "tokens", "__v"]);
-    return _.omit(userObject, ["isBanned", "password", "__v"]);
+    return _.omit(userObject, [ "password", "__v"]);
 };
 
 
