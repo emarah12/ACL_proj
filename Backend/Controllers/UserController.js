@@ -74,7 +74,7 @@ router.patch('/addreservedFlights/:id',  (req, res) => {
     User.findOneAndUpdate({ _id: req.params.id}, { $push: { reservedFlights: req.params.reservedFlights} }, { new: true }).then(updatedlist => res.status(200).send({ list: updatedlist }))
 })
 router.patch('/removereservedFlight/:id', (req, res) => {
-    User.findOneAndUpdate({ _id: { $in: req.user._id } }, { $pull: { reservedFlights: req.params.employee_id } }, { new: true }).then(updatedlist => res.status(200).send({ list: updatedlist }))
+    User.findOneAndUpdate({ _id: { $in: req.user._id } }, { $pull: { reservedFlights: req.params._id } }, { new: true }).then(updatedlist => res.status(200).send({ list: updatedlist }))
 })
 
     
