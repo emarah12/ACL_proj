@@ -51,10 +51,12 @@ router.delete('/deleteFlight/:_id', function(req, res, next){
     }).catch(next);
 });
 
-router.get('/update/:id',function(req,res){
-Flight.findById(req.params.id).then(function(flight){
-    res.send(flight);
-}).catch(next);
-});
+
+router.patch('/update/:id', (req, res) => {
+    Flight.findOneAndUpdate({ _id: req.params.id }, { $set: req.body }, { new: true }).then(updatedflight => res.status(200).send({ flight: updatedflight }))
+})
+
+
+
 
 module.exports = router;
