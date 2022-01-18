@@ -90,6 +90,11 @@ const flightSchema = new mongoose.Schema({
         unique:false,
         required:true,
         uppercase:true,
+    },
+
+    seats:{
+        type: mongoose.Types.ObjectId,
+        ref: Seat
     }
 });
 flightSchema.index({ "$**": "text" }); 

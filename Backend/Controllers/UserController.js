@@ -56,7 +56,7 @@ router.get('/userReservedFlights', function (req, res) {  //id
     User.findById(function(err, reservedFlights) {
         if (err)
             res.send(err);
-        res.json(User.res); //
+        res.json(reservedFlights); //
     });
 })
 
@@ -71,9 +71,17 @@ router.delete('/userDeleteFlight/:_id', function(req, res, next){     //a delete
 });
 
 //Update user info
-router.get('/update/:id',function(req,res){                            //update data in reservations also
-    User.findById(req.params.id).then(function(flight){
-        res.send(User);
-    }).catch(next);
-    });
+router.patch('/update/:id', (req, res) => {
+    User.findOneAndUpdate({ _id: req.params.id }, { $set: req.body }, { new: true }).then(updateduser => res.status(200).send({ user: updateduser }))
+})
 
+//Add reserved Flight
+router.patch('/addreservedFlights/:id',  (req, res) => {
+    User.findOneAndUpdate({ _id: req.params.id}, { $push: { reservedFlights: req.params.reservedFlights} }, { new: true }).then(updatedlist => res.status(200).send({ list: updatedlist }))
+})
+//Remove Reserved Flight
+router.patch('/removereservedFlight/:id', (req, res) => {
+    User.findOneAndUpdate({ _id: { $in: req.user._id } }, { $pull: { reservedFlights: req.params._id } }, { new: true }).then(updatedlist => res.status(200).send({ list: updatedlist }))
+})
+
+    
