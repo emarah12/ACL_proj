@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const flightSchema = new mongoose.Schema({
+const seatSchema = new mongoose.Schema({
 
 
     Seats:
@@ -9,3 +9,4 @@ const flightSchema = new mongoose.Schema({
         IsOccupied:Boolean 
     }
 })
+module.exports= mongoose.model('Seat', seatSchema);

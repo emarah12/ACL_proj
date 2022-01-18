@@ -1,5 +1,7 @@
 const mongoose = require('mongoose');
-const flightSchema = new mongoose.Schema({
+const Flight = require('./Flight');
+const Seat = require('./Seat');
+const userSchema = new mongoose.Schema({
 
     first_name:
     {
@@ -48,7 +50,7 @@ const flightSchema = new mongoose.Schema({
     
     reservedFlights: [{
             type: mongoose.Types.ObjectId,
-            ref: "Flight"
+            ref: Flight
         }],
     
 
@@ -201,7 +203,7 @@ router.post("/login", (req, res) => { // If email or password fields are not ent
     }
     if (!req.body.password) {
         return res.status(400).send({
-            err: "password feild is required !",
+            err: "password field is required !",
         });
     }
     const userData = {
@@ -223,4 +225,4 @@ router.post("/login", (req, res) => { // If email or password fields are not ent
         });
 });
 
-module.exports= mongoose.model('user', userSchema);
+module.exports= mongoose.model('User', userSchema);
