@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const Seat = require('./Seat');
 const flightSchema = new mongoose.Schema({
     flight_number:
     {
