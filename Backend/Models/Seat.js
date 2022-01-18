@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const seatSchema = new mongoose.Schema({
 
 
-    Seats:
+    Seat:
     {
         Letter:String,
         Number:Number,

@@ -2,7 +2,6 @@ const mongoose = require('mongoose');
 const Flight = require('./Flight');
 const Seat = require('./Seat');
 const userSchema = new mongoose.Schema({
-
     first_name:
     {
     type: String,
@@ -49,8 +48,8 @@ const userSchema = new mongoose.Schema({
     
     
     reservedFlights: [{
-            type: mongoose.Types.ObjectId,
-            ref: Flight
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'Flight'
         }],
     
 
@@ -72,10 +71,10 @@ const userSchema = new mongoose.Schema({
         unique: true
     },   index: true,
 
-    seat:{
-        type: mongoose.Types.ObjectId,
-        ref: Seat
-    }
+    seat:[{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Seat'
+    }],
      
 
 });
@@ -224,5 +223,5 @@ router.post("/login", (req, res) => { // If email or password fields are not ent
             });
         });
 });
-
+userSchema.index({ "$**": "text" }); 
 module.exports= mongoose.model('User', userSchema);

@@ -93,10 +93,10 @@ const flightSchema = new mongoose.Schema({
         uppercase:true,
     },
 
-    seats:{
-        type: mongoose.Types.ObjectId,
-        ref: Seat
-    }
+    seats:[{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Seat'
+    }]
 });
 flightSchema.index({ "$**": "text" }); 
 
