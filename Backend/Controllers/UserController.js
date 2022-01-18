@@ -21,10 +21,16 @@ router.post("/userCreate",(req, res) => {
 
 //user search flights 
 router.get("/userSearchFlights",(req,res) =>{
+    console.log(req.query);
+    // if(req.query === econ_seats)
+    // console.log(req.query);
+    // if(req.query !== 'econ_seats'||req.query !== 'business_seats'){
     Flight.find(req.query).then((result) =>{
+        // result.filter(item => item.econ_seats>=)
         res.header("Content-Type", "application/json");
     res.send(JSON.stringify(result, null, 4));
     });
+// }
 });
 
 //Num of econ_seats

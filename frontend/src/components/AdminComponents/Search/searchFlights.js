@@ -24,7 +24,7 @@ export default class SearchFlights extends React.Component {
     e.preventDefault();
     let searchlink = "";
    if(this.state.flight_number!== " ")
-    searchlink+="flight_num="+ this.state.flight_number +"&";
+    searchlink+="flight_number="+ this.state.flight_number +"&";
    
     if(this.state.departure!== " ")
     searchlink+="departure="+ this.state.departure +"&";
@@ -62,7 +62,7 @@ handleChange = function(event) {
   render() {
     return(
       <div>
-<h2>Search Flight</h2>;
+<h2>Search Flight</h2>
 <TextField
   id="flight_number"
   label="Flight Number"
@@ -76,6 +76,7 @@ handleChange = function(event) {
   label="Departure Time"
  // value={this.state.name}
   onChange={e => this.state.departure = e.target.value}
+
   margin="normal"
 />
 <br/>

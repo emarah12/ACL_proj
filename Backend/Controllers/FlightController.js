@@ -29,14 +29,14 @@ router.post("/create",(req, res) => {
 
 router.put('/updateFlightbyadmin/:_id',  (req, res) => {
     console.log("patch")
-    Flight.
-    findByIdAndUpdate(  req.params._id,  req.body ).then(updatedflight => res.status(200).send({ flight: updatedflight }))
+    Flight.findByIdAndUpdate(  req.params._id,  req.body ).then(updatedflight => res.status(200).send({ flight: updatedflight }))
 })
 
 
 
 router.get("/searchFlights",(req,res) =>{
     Flight.find(req.query).then((result) =>{
+        console.log("search");
         res.header("Content-Type", "application/json");
     res.send(JSON.stringify(result, null, 4));
     });

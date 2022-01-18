@@ -28,7 +28,7 @@ const App = () => {
                 <Route path="/api/flight/updateFlightbyadmin/:id" exact component={Edit} />
                 <Route path = "/api/flight/searchFlight" exact component = {SearchFlights}/> 
                 <Route path="/list-search/:id" exact component={SearchResults}/>
-                <Route path="/select" exact component={Select}></Route>
+                <Route path="/select/:id" exact component={Select}></Route>
                 <Route path="/book" exact component={Book}></Route>
                 <Route path="/home" exact component={SwipeableTextMobileStepper}></Route>
                 <Route path="/selectSeats" exact component={ChildModal}></Route>

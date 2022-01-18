@@ -12,17 +12,68 @@ import EscalatorWarningIcon from '@mui/icons-material/EscalatorWarning';
 import ManIcon from '@mui/icons-material/Man';
 import Autocomplete from '@mui/material/Autocomplete';
 
-export default function InputAdornments() {
-  const [values, setValues] = React.useState({
-    from: '',
-    to: '',
-  });
-  const [value, setValue] = React.useState([null, null]);
+export default class InputAdornments extends React.Component {
+  constructor(props) {
+    super(props);
+    this.componentDidMount = this.componentDidMount.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+    this.state = {flight_number:' ',departure:' ',arrival:' ',arr_airport:' ',econ_seats:' ',business_seats:' ',dep_airport:' ',
+    arr_terminal:' ',dep_terminal:' ',Flights:{},value:[null]}
+  }
+  // const [values, setValues] = React.useState({
+  //   from: '',
+  //   to: '',
+  // });
+  
 
-  const handleChange = (prop) => (event) => {
-    setValues({ ...values, [prop]: event.target.value });
-  };
+  // const handleChange = (prop) => (event) => {
+  //   setValues({ ...values, [prop]: event.target.value });
+  // };
+  componentDidMount(){
+    const flight = this.props.match.params.id;
+  }
+  
+  handleSubmit =async e=>{
+    e.preventDefault();
+    let searchlink = "";
+   if(this.state.flight_number!== " ")
+    searchlink+="flight_number="+ this.state.flight_number +"&";
+   
+    if(this.state.departure!== " ")
+    searchlink+="departure="+ this.state.departure +"&";
 
+     if(this.state.arrival!== " ")
+     searchlink+="arrival="+ this.state.arrival +"&";
+
+     if(this.state.arr_airport!== " ")
+     searchlink+="arr_airport="+ this.state.arr_airport +"&";
+
+     if(this.state.econ_seats!== " ")
+     searchlink+="econ_seats="+ this.state.econ_seats +"&";
+     if(this.state.business_seats!== " ")
+     searchlink+="business_seats="+ this.state.business_seats +"&";
+     if(this.state.dep_airport!= " ")
+     searchlink+="dep_airport="+ this.state.dep_airport +"&";
+     if(this.state.dep_terminal!= " ")
+     searchlink+="dep_terminal="+ this.state.dep_terminal +"&";
+     if(this.state.arr_terminal!= " ")
+     searchlink+="arr_terminal="+ this.state.arr_terminal +"&";
+
+     searchlink= searchlink.substring(0,(searchlink.length-1));
+     
+     localStorage.setItem("f","f");
+     localStorage.setItem("searchlink",searchlink);
+
+     window.location.href="/select?"+searchlink;
+
+    
+}
+handleChange = function(event) {
+  this.setState({value: event.target.value});
+  this.state.Flights={...this.state.Flights,[event.target.name]:[event.target.value]};
+}
+  render() {
   return (
     <Box sx={{ display: 'flex', flexWrap: 'wrap' ,marginLeft:'3rem'}}>
      <div>
@@ -50,8 +101,9 @@ export default function InputAdornments() {
     /> */}
           <TextField 
           label="From"
-          onChange={handleChange('from')}
-          id="filled-start-adornment"
+          // onChange={handleChange('from')}
+        //  onChange={e => this.state.dep_airport = e.target.value}
+          id="dep_airport"
           sx={{ m: 1, width: '20ch',marginTop:'3rem' }}
           InputProps={{
             startAdornment: <InputAdornment position="start" ><FlightTakeoffIcon />
@@ -66,8 +118,9 @@ export default function InputAdornments() {
       <div>
         <TextField
           label="To"
-          id="filled-start-adornment"
-          onChange={handleChange('to')}
+          id="arr_airport"
+          // onChange={handleChange('to')}
+          onChange={e => this.state.arr_airport = e.target.value}
           sx={{ m: 1, width: '20ch',marginTop:'3rem' }}
           InputProps={{
             startAdornment: <InputAdornment position="start"><FlightLandIcon />
@@ -81,15 +134,17 @@ export default function InputAdornments() {
       </div>
       <LocalizationProvider dateAdapter={AdapterDateFns}>
       <DateRangePicker
-        value={value}
+       value={this.state.value}
         onChange={(newValue) => {
-          setValue(newValue);
+          this.state.departure = newValue;
+         // setValue(newValue);
         }}
+      //  onChange={e => this.state.departure = e.target.value}
         renderInput={(startProps, endProps) => (
           <React.Fragment>
             <TextField 
             {...startProps}  
-            id="filled-start-adornment" 
+            id="departure" 
             label="Depart"
             sx={{ m: 1, width: '20ch',marginTop:'3rem' }}
             InputProps={{
@@ -121,7 +176,7 @@ export default function InputAdornments() {
             startAdornment: <InputAdornment position="start"><ManIcon />
             </InputAdornment>,
           }}
-          onChange={handleChange}
+          //onChange={handleChange}
           SelectProps={{
             native: true,
           }}
@@ -141,7 +196,7 @@ export default function InputAdornments() {
             </InputAdornment>,
           }}
           defaultValue={0}
-          onChange={handleChange}
+          //onChange={handleChange}
           SelectProps={{
             native: true,
           }}
@@ -151,4 +206,5 @@ export default function InputAdornments() {
         </div>
     </Box>
   );
+        }
 }

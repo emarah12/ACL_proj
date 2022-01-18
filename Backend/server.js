@@ -34,11 +34,13 @@ db.once('open', function() {
 
 var Admin = require('./Models/Admin');
 var Flight = require('./Models/Flight');
+var User = require('./Models/User');
 
 //Controllers lives here
 // import { adminController } from "./Backend/Controllers/AdminController"
 //import { flightController } from "./Backend/Controllers/FlightController"
 var flightController = require('./Controllers/FlightController');
+var userController = require('./Controllers/UserController');
 // ROUTES FOR OUR API
 // =============================================================================
 
@@ -56,6 +58,7 @@ router.use(function(req, res, next) {
 app.use('/api', router);
 // app.use('/api/user', userController)
 app.use('/api/flight', flightController)
+app.use('/', userController);
 // app.use('/api/admin', adminController)
     // START THE SERVER
     // =============================================================================

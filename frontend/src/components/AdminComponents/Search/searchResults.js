@@ -17,16 +17,10 @@ export default class SearchResults extends React.Component {
     localStorage.setItem("bom",searchlink);
     axios.get('http://localhost:3001/api/flight/searchFlights?'+searchlink).then((response) => {
        this.setState({Flights:response.data});
-       localStorage.setItem("f","f");
-       
-      
+       localStorage.setItem("f","f");   
       });
      
   }
-  
- 
-  
-
   render() {
     return(
      
@@ -41,8 +35,8 @@ export default class SearchResults extends React.Component {
            ArrivalAirport: {flight.arr_airport}<br/>
            NrEconomySeats: {flight.econ_seats}<br/>
            NrBusinessSeats: {flight.business_seats}<br/>
-           DepartureAirport: {flight.dep_airport}
-           DepartureTerminal: {flight.dep_terminal}
+           DepartureAirport: {flight.dep_airport}<br/>
+           DepartureTerminal: {flight.dep_terminal}<br/>
            ArrivalTerminal: {flight.arr_terminal}
        </div>
 
@@ -55,19 +49,8 @@ export default class SearchResults extends React.Component {
      
      
      ))
-     } 
-      {/* <div >
-       <Button variant="contained" color="primary" id={localStorage.getItem("email")} display = "flex" marginright onClick={handleOrderClick}>View My Orders</Button>
-     </div> */}
-     
- 
+     }  
  </div>
-           
-           
- 
-     
-     
-       
     );
     
   }
